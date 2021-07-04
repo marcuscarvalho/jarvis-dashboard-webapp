@@ -1,5 +1,5 @@
 # [Jarvis - SDS Dashboard Web App](https://tbt.com "Jarvis")
-Jarvis is a web app dashboard for sds team. 
+Jarvis is a web app dashboard that provides powerful information to sds team. 
  
 # Installation
 
