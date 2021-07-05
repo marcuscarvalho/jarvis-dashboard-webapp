@@ -2,10 +2,12 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {Avatar, Popover} from "antd";
 import {userSignOut} from "appRedux/actions/Auth";
+import firebase from "firebase";
 
 class UserProfile extends Component {
 
   render() {
+    const user = firebase.auth().currentUser;
     const userMenuOptions = (
       <ul className="gx-user-popover">
         <li>My Account</li>
@@ -19,9 +21,9 @@ class UserProfile extends Component {
 
       <div className="gx-flex-row gx-align-items-center gx-mb-4 gx-avatar-row">
         <Popover placement="bottomRight" content={userMenuOptions} trigger="click">
-          <Avatar src='https://via.placeholder.com/150x150'
+          <Avatar src={user === null ? '' : user.photoURL}
                   className="gx-size-40 gx-pointer gx-mr-3" alt=""/>
-          <span className="gx-avatar-name">Rob Farnandies<i
+          <span className="gx-avatar-name">{user === null ? '' : user.displayName}<i
             className="icon icon-chevron-down gx-fs-xxs gx-ml-2"/></span>
         </Popover>
       </div>
